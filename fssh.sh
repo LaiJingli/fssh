@@ -34,9 +34,9 @@ remote_ssh_user=root
 remote_ssh_user_pass="vps_pass"
 ####普通ssh选项，相同任务每次执行时间基本相同
 #ssh_options=" -o StrictHostKeyChecking=no"
-####闪速ssh优化选项，采用ssh长连接复用技术,相同任务在10分钟内，第二次及以后执行时间在3s内
+####闪速ssh优化选项，采用ssh长连接复用技术,相同任务在10s内，第二次及以后执行时间在3s内
 ssh_options=" -T -q -o StrictHostKeyChecking=no -o PubkeyAuthentication=no -o ConnectTimeout=5  -o ControlMaster=auto -o ControlPath=/tmp/.ssh_mux_%h_%p_%r -o ControlPersist=600s "
-####闪速ssh优化选项，在低速网络链接环境使用，采用ssh长连接复用技术,相同任务在10分钟内，第二次及以后执行时间在3s内
+####闪速ssh优化选项，在低速网络链接环境使用，采用ssh长连接复用技术,相同任务在10s内，第二次及以后执行时间在3s内
 #ssh_options=" -C -tt -q -o StrictHostKeyChecking=no -o PubkeyAuthentication=no -o ConnectTimeout=5  -o ControlMaster=auto -o ControlPath=/tmp/.ssh_mux_%h_%p_%r -o ControlPersist=600s"
 ssh_cmd="/usr/bin/sshpass -p${remote_ssh_user_pass} /usr/bin/ssh ${ssh_options}"
 
