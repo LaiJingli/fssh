@@ -31,7 +31,7 @@ cmd="uname;$cmd"
 #remote_ssh_user=lai
 remote_ssh_user=root
 #remote_ssh_user_pass="654321"
-remote_ssh_user_pass="pt_new_vps"
+remote_ssh_user_pass="vps_pass"
 ####普通ssh选项，相同任务每次执行时间基本相同
 #ssh_options=" -o StrictHostKeyChecking=no"
 ####闪速ssh优化选项，采用ssh长连接复用技术,相同任务在10分钟内，第二次及以后执行时间在3s内
