@@ -7,14 +7,15 @@ fssh_root_dir=./
 tmp_dir=$fssh_root_dir/tmp
 log_dir=$fssh_root_dir/log
 current_time="date +%Y-%m-%d_%H:%M:%S"
+
 ####指定远程主机列表或主机列表文件
 list1="
 192.168.0.110
 192.168.0.111
 "
 list2=$(cat $fssh_root_dir/ip_list_servers.txt)
-
 list=$list2
+
 
 ####指定待执行的命令(适用不包含变量、特殊字符的普通命令，多个命令以;分割)或命令列表文件(适合所有命令，一条命令一行或多条命令一行以;分割)
 #cmd="date;ifconfig"
@@ -26,15 +27,16 @@ cmd=$fssh_root_dir/remote_cmd.txt
 #cmd="$cmd"
 #echo $cmd
 
-####指定ssh相关参数
+####加载ssh连接用户名及密码文件
 source $fssh_root_dir/.userpass.sh
-#source $fssh_root_dir/.userpass_new.sh
-####普通ssh选项，相同任务每次执行时间基本相同
+
+####指定ssh相关参数
+####普通ssh选项，相同任务每次执行时间基本相同 (OpenSSH 5.6之前版本使用)
 #ssh_options=" -o StrictHostKeyChecking=no"
 ssh_options="  -o StrictHostKeyChecking=no -o PubkeyAuthentication=no "
-####闪速ssh优化选项，采用ssh长连接复用技术,相同任务在10s内，第二次及以后执行时间在3s内
+####闪速ssh优化选项，采用ssh长连接复用技术,相同任务在10s内，第二次及以后执行时间在3s内 (OpenSSH 5.6之后版本使用)
 #ssh_options=" -T -q -o StrictHostKeyChecking=no -o PubkeyAuthentication=no -o ConnectTimeout=5  -o ControlMaster=auto -o ControlPath=$tmp_dir/.ssh_mux_%h_%p_%r -o ControlPersist=600s "
-####闪速ssh优化选项，在低速网络链接环境使用，采用ssh长连接复用技术,相同任务在10s内，第二次及以后执行时间在3s内
+####闪速ssh优化选项，启用压缩选项，在低速网络链接环境使用，采用ssh长连接复用技术,相同任务在10s内，第二次及以后执行时间在3s内 (OpenSSH 5.6之后版本使用)
 #ssh_options=" -C -tt -q -o StrictHostKeyChecking=no -o PubkeyAuthentication=no -o ConnectTimeout=5  -o ControlMaster=auto -o ControlPath=$tmp_dir/.ssh_mux_%h_%p_%r -o ControlPersist=600s"
 ssh_cmd="/usr/bin/sshpass -p${remote_ssh_user_pass} /usr/bin/ssh ${ssh_options}"
 
