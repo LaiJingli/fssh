@@ -78,7 +78,8 @@ echo ============results report:================
 pids_length=${#pids[@]}
 echo pids_length:${pids_length}
 
-echo
+cmd_execute_start_time=`$current_time`
+#echo
 echo `$current_time` execute reslut check loop begin:
 
 
@@ -160,4 +161,7 @@ done
 echo
 echo `$current_time` Good luck,all tasks has complete!
 
+cmd_execute_end_time=`$current_time`
+echo 本次执行命令开始时间: $cmd_execute_start_time
+echo 本次执行命令结束时间: $cmd_execute_end_time
 
