@@ -6,63 +6,17 @@ echo 用户开始执行: `date`
 echo
 
 
-#########用户级别的命令请按顺序写在下面
-### 用户命令begin
+######### 用户级别的命令请按顺序写在下面
+######### 用户命令begin
 #uptime
-ifconfig |grep "inet addr:"
-#ip addr show|grep "inet "
-#
+ip addr show|grep "inet "
 #chkconfig --list|grep crond
 
-#which rm
-
-#cat /etc/ssh/sshd_config |grep -i root
-
-#/etc/init.d/gmond stop
-#mv /usr/local/ganglia  /usr/local/ganglia.bak
-#ls /usr/local
-#
-
-###安装ganglia被监端
-#yum install ganglia-gmond ganglia-gmond-python -y
-#wget http://192.168.0.40/gmond.conf -O /etc/ganglia/gmond.conf
-#/etc/init.d/gmond restart
-#chkconfig gmond on
-
-###批量重启gmond
-#/etc/init.d/gmond restart
-
-
-###安装zabbix被控端
-#wget http://192.168.0.210:5000/down/zabbix_agentd_install.sh
-#bash -x zabbix_agentd_install.sh 
-
-
-#/etc/init.d/zabbix_agentd restart
 
 ###测试网络及路由表
 #ping -c 2 www.baidu.com
 #route -n
 
-
-###修改密码
-#echo "WBY_blj200+xwzj!"|passwd --stdin SAS_public
-#echo "b530012d6749af4caf0861cce1d"|passwd --stdin root
-
-
-###修改ntp
-#date
-#/usr/sbin/ntpdate pool.ntp.org
-#date
-#sed -i 's/192.168.0.200/pool.ntp.org/g' /var/spool/cron/root
-#cat /var/spool/cron/root
-#cat /var/spool/cron/root|grep ntpdate
-#tail /var/log/ntp.log
-#echo "#每3个小时与权威ntp服务器同步时间，add by laijingli 20151108" >>/var/spool/cron/root
-#echo "1 */3 * * * /usr/sbin/ntpdate pool.ntp.org >> /var/log/ntp.log;/sbin/hwclock -w" >>/var/spool/cron/root
-#echo -------------
-#cat /var/spool/cron/root
-#
 
 ###ip和hostname对应关系，用于做hosts配置
 #hostname
@@ -76,12 +30,4 @@ ifconfig |grep "inet addr:"
 #echo "alias rm=/bin/rmtrash.sh" >>/etc/bashrc
 #source /etc/bashrc
 
-
-###配置登录提示语motd
-#wget http://192.168.0.40/log/init_yunniao_system/motd -O /etc/motd
-
-
-#cat /etc/rc.local
-#echo --------------
-#chkconfig --list|grep -E "mongo|redis|mysql|nfs|haproxy|nginx"
 
