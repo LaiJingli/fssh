@@ -108,14 +108,14 @@ array_check () {
              #echo cmd_excute_status:${cmd_excute_status}
              ####绿色闪烁
              echo -e "\033[32m\033[05m执行成功\033[0m"
-             echo -e "\033[32m\033[05m $(cat $tmp_dir/${ips[$i]}.log)\033[0m"
+             echo -e "\033[32m\033[05m$(cat $tmp_dir/${ips[$i]}.log)\033[0m"
              pid_exist_value[$i]=0
              complete_num_success=$((${complete_num_success}+1))
              #echo complete_num_success_tasks:[${complete_num_success}]
              #echo ${ips[$i]} >>/root/vps_authed.txt
           else
              echo -e "\033[31m\033[05m执行失败\033[0m"
-             echo -e "\033[31m\033[05m $(cat $tmp_dir/${ips[$i]}.log)\033[0m"
+             echo -e "\033[31m\033[05m$(cat $tmp_dir/${ips[$i]}.log)\033[0m"
              #pid_exist_value[$i]=-1
              #echo ${ips[$i]} >>/root/vps_not_authed.txt
         fi
@@ -158,9 +158,9 @@ for ((j=0;j<${pids_length};j++)) ;do
 done
 done
 
-echo
 cmd_execute_end_time=`$current_time`
 echo $cmd_execute_end_time Good luck,all tasks has complete!
+echo
 echo 本次执行命令开始时间: $cmd_execute_start_time
 echo 本次执行命令结束时间: $cmd_execute_end_time
-
+echo
