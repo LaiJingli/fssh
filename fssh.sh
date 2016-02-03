@@ -80,7 +80,7 @@ echo pids_length:${pids_length}
 
 cmd_execute_start_time=`$current_time`
 #echo
-echo `$current_time` execute reslut check loop begin:
+echo $cmd_execute_start_time execute reslut check loop begin:
 
 
 ####循环检查pids数组中的pid是否运行结束的函数
@@ -159,9 +159,8 @@ done
 done
 
 echo
-echo `$current_time` Good luck,all tasks has complete!
-
 cmd_execute_end_time=`$current_time`
+echo $cmd_execute_end_time Good luck,all tasks has complete!
 echo 本次执行命令开始时间: $cmd_execute_start_time
 echo 本次执行命令结束时间: $cmd_execute_end_time
 
