@@ -4,10 +4,12 @@ fssh,全称flash ssh， 目标是通过ssh闪速批量并行远程执行命令�
 使用方法：  
 主控端执行  
 0、需安装sshpass（略）  
-1、wget https://raw.githubusercontent.com/LaiJingli/fssh/master/fssh.sh  
+1、git clone https://github.com/LaiJingli/fssh.git  
 2、chmod +x fssh.sh  
-3、修改脚本中的ip地址及命令  
-4、./fssh.sh  
+3、修改ip_list_servers.txt中服务器的ip地址  
+4、修改.userpass.sh中连接服务器的用户名及密码 
+5、编辑remote_cmd.txt中要在服务器执行的命令    
+6、./fssh.sh  
 
 
 特点：  
